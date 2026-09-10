@@ -1,0 +1,15 @@
+:root {
+  --orange: #f15d30;
+  --teal: #00a8b5;
+  --white: #ffffff;
+  --black: #000000;
+
+  --gray: #666666;
+  --light-gray: #f6f6f6;
+  --border: #e8e8e8;
+
+  --transition: all 0.35s ease;
+  --shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+
+  --container: 1200px;
+}

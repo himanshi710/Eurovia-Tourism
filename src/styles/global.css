@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  color: var(--orange);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-label::before {
+  content: "";
+
+  width: 30px;
+  height: 2px;
+
+  background: var(--teal);
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.05;
+  font-weight: 600;
+
+  color: var(--black);
+}
+
+.section-title span {
+  color: var(--orange);
+}
+
+.section-text {
+  color: var(--gray);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 15px 25px;
+
+  border: 1px solid var(--orange);
+
+  background: var(--orange);
+  color: var(--white);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  transition: var(--transition);
+}
+
+.btn-orange:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 14px 24px;
+
+  border: 1px solid var(--black);
+
+  background: transparent;
+  color: var(--black);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.btn-outline:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: min(100% - 30px, var(--container));
+  }
+
+  .section-padding {
+    padding: 70px 0;
+  }
+}

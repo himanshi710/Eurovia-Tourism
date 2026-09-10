@@ -1,0 +1,49 @@
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.hover-lift {
+  transition: var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom img {
+  transition: transform 0.7s ease;
+}
+
+.image-zoom:hover img {
+  transform: scale(1.08);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

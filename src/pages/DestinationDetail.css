@@ -1,0 +1,363 @@
+.destination-detail-page {
+  background: var(--white);
+  color: var(--black);
+}
+
+
+/* HERO */
+
+.destination-detail-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.destination-detail-image {
+  position: absolute;
+  inset: 0;
+}
+
+.destination-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destination-detail-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.84),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+.destination-detail-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  padding: 170px 0 100px;
+  color: var(--white);
+}
+
+.destination-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255,255,255,.75);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 55px;
+  transition: var(--transition);
+}
+
+.destination-back:hover {
+  color: var(--orange);
+}
+
+.destination-detail-country {
+  display: block;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.destination-detail-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(65px, 9vw, 115px);
+  line-height: .9;
+  font-weight: 500;
+  letter-spacing: -4px;
+  margin-bottom: 30px;
+}
+
+.destination-detail-content p {
+  max-width: 570px;
+  color: rgba(255,255,255,.76);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.destination-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.destination-detail-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.destination-detail-meta svg {
+  color: var(--orange);
+}
+
+
+/* INTRO */
+
+.destination-detail-intro {
+  padding: 120px 0;
+}
+
+.destination-detail-intro-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 60px;
+}
+
+.detail-number {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.detail-label {
+  display: inline-block;
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.destination-detail-intro h2 {
+  max-width: 800px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 5.5vw, 76px);
+  line-height: .96;
+  font-weight: 500;
+  letter-spacing: -3px;
+  margin-bottom: 32px;
+}
+
+.destination-detail-intro h2 span {
+  color: var(--teal);
+}
+
+.destination-detail-intro p {
+  max-width: 680px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 15px;
+}
+
+
+/* HIGHLIGHTS */
+
+.destination-highlights {
+  padding: 110px 0 130px;
+  background: #f6f6f6;
+}
+
+.destination-highlights-heading {
+  margin-bottom: 60px;
+}
+
+.destination-highlights-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 5vw, 70px);
+  line-height: .95;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.destination-highlights-heading h2 span {
+  color: var(--orange);
+}
+
+.destination-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.destination-highlights-grid > div {
+  position: relative;
+  min-height: 290px;
+  padding: 35px 30px;
+  border-right: 1px solid #ddd;
+}
+
+.destination-highlights-grid > div:last-child {
+  border-right: 0;
+}
+
+.destination-highlights-grid span {
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.destination-highlights-grid h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 50px 0 12px;
+}
+
+.destination-highlights-grid p {
+  max-width: 280px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* CTA */
+
+.destination-detail-cta {
+  padding: 35px 0;
+  background: var(--teal);
+}
+
+.destination-detail-cta-inner {
+  min-height: 280px;
+  padding: 55px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.destination-detail-cta-inner > div > span {
+  display: block;
+  color: var(--teal);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.destination-detail-cta-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px,5vw,65px);
+  line-height: .95;
+  font-weight: 500;
+  margin: 0;
+}
+
+.destination-detail-cta-inner h2 strong {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.destination-detail-cta-inner > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+  padding: 17px 25px;
+  background: var(--white);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.destination-detail-cta-inner > a:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+  .destination-detail-content {
+    padding-top: 155px;
+  }
+
+  .destination-detail-intro {
+    padding: 90px 0;
+  }
+
+  .destination-detail-intro-grid {
+    grid-template-columns: 60px 1fr;
+    gap: 30px;
+  }
+
+  .destination-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-highlights-grid > div {
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .destination-highlights-grid > div:last-child {
+    border-bottom: 0;
+  }
+
+  .destination-detail-cta-inner {
+    padding: 45px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .destination-detail-hero {
+    min-height: 720px;
+  }
+
+  .destination-detail-content {
+    padding: 145px 0 80px;
+  }
+
+  .destination-detail-content h1 {
+    font-size: 58px;
+    letter-spacing: -2px;
+  }
+
+  .destination-detail-content p {
+    font-size: 14px;
+  }
+
+  .destination-detail-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .destination-detail-intro h2 {
+    font-size: 43px;
+  }
+
+  .destination-highlights {
+    padding: 80px 0;
+  }
+
+  .destination-detail-cta-inner {
+    padding: 40px 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .destination-detail-cta-inner h2 {
+    font-size: 42px;
+  }
+}
