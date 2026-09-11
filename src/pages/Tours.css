@@ -1692,3 +1692,71 @@
 .signature-button{
   border-radius: 30px;
 }
+/* =========================================================
+   ROUNDED TOUR CARDS
+========================================================= */
+
+.tour-card,
+.tours-grid > * {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TRAVEL MOOD CARDS
+========================================================= */
+
+.mood-card {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.mood-card img {
+  border-radius: 28px;
+}
+
+
+/* =========================================================
+   BENEFIT CARDS
+========================================================= */
+
+.benefit-item {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.tour-filters button {
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .tour-card,
+  .tours-grid > * {
+    border-radius: 20px;
+  }
+
+  .mood-card {
+    border-radius: 20px;
+  }
+
+  .mood-card img {
+    border-radius: 20px;
+  }
+
+  .benefit-item {
+    border-radius: 20px;
+  }
+
+}

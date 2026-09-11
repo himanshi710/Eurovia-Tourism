@@ -1561,3 +1561,299 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+/* =========================================
+   EUROVIA ABOUT — ALL CARDS ROUNDED
+   ADD THIS AT THE VERY END OF About.css
+========================================= */
+
+/* -----------------------------------------
+   TRAVEL MOMENTS CARDS
+----------------------------------------- */
+
+.moment-card {
+  border-radius: 24px !important;
+  overflow: hidden;
+}
+
+.moment-image {
+  border-radius: 24px 24px 0 0 !important;
+  overflow: hidden;
+}
+
+.moment-image img {
+  border-radius: 24px 24px 0 0 !important;
+}
+
+
+/* -----------------------------------------
+   MISSION IMAGES
+----------------------------------------- */
+
+.mission-image.main {
+  border-radius: 26px !important;
+  overflow: hidden;
+}
+
+.mission-image.main img {
+  border-radius: 26px !important;
+}
+
+.mission-small-image {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.mission-small-image img {
+  border-radius: 20px !important;
+}
+
+
+/* -----------------------------------------
+   VALUES CARDS
+----------------------------------------- */
+
+.value-card {
+  border-radius: 24px !important;
+  overflow: hidden;
+}
+
+.value-icon {
+  border-radius: 50% !important;
+}
+
+
+/* -----------------------------------------
+   MISSION CHECK ITEMS
+----------------------------------------- */
+
+.mission-checks > div {
+  border-radius: 999px !important;
+}
+
+
+/* -----------------------------------------
+   MISSION LINK / BUTTON
+----------------------------------------- */
+
+.mission-link {
+  border-radius: 999px !important;
+}
+
+
+/* -----------------------------------------
+   COUNTRIES BUTTON
+----------------------------------------- */
+
+.countries-btn {
+  border-radius: 999px !important;
+}
+
+
+/* -----------------------------------------
+   PEOPLE IMAGE
+----------------------------------------- */
+
+.people-image {
+  border-radius: 26px !important;
+  overflow: hidden;
+}
+
+.people-image img {
+  border-radius: 26px !important;
+}
+
+
+/* -----------------------------------------
+   PEOPLE HIGHLIGHT CARD
+----------------------------------------- */
+
+.people-highlight {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   PEOPLE BADGE
+----------------------------------------- */
+
+.people-badge {
+  border-radius: 50% !important;
+}
+
+
+/* -----------------------------------------
+   PEOPLE STATS
+----------------------------------------- */
+
+.people-stats > div {
+  border-radius: 18px !important;
+}
+
+
+/* -----------------------------------------
+   ABOUT STATS CARDS
+----------------------------------------- */
+
+.about-stat {
+  border-radius: 22px !important;
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   STAT NUMBER CIRCLE
+----------------------------------------- */
+
+.about-stat strong {
+  border-radius: 50%;
+}
+
+
+/* -----------------------------------------
+   PHOTO STRIP
+----------------------------------------- */
+
+.photo-strip-item {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.photo-strip-item img {
+  border-radius: 20px !important;
+}
+
+
+/* -----------------------------------------
+   IMAGE TAGS / LABELS
+----------------------------------------- */
+
+.mission-image-tag,
+.people-image-label {
+  border-radius: 999px !important;
+}
+
+
+/* -----------------------------------------
+   STAMPS
+----------------------------------------- */
+
+.mission-stamp {
+  border-radius: 50% !important;
+}
+
+
+/* -----------------------------------------
+   GENERAL IMAGE SAFETY
+----------------------------------------- */
+
+.about-page img {
+  display: block;
+}
+
+
+/* =========================================
+   PREMIUM HOVER
+========================================= */
+
+.moment-card,
+.value-card,
+.about-stat,
+.people-highlight,
+.people-stats > div,
+.photo-strip-item,
+.mission-image.main,
+.mission-small-image,
+.people-image {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.moment-card:hover,
+.value-card:hover,
+.about-stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.photo-strip-item:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .moment-card {
+    border-radius: 18px !important;
+  }
+
+  .moment-image,
+  .moment-image img {
+    border-radius: 18px 18px 0 0 !important;
+  }
+
+  .value-card,
+  .about-stat,
+  .people-highlight {
+    border-radius: 18px !important;
+  }
+
+  .mission-image.main,
+  .mission-image.main img,
+  .mission-small-image,
+  .mission-small-image img,
+  .people-image,
+  .people-image img {
+    border-radius: 20px !important;
+  }
+
+  .photo-strip-item,
+  .photo-strip-item img {
+    border-radius: 16px !important;
+  }
+
+  .people-stats > div {
+    border-radius: 14px !important;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .moment-card,
+  .value-card,
+  .about-stat,
+  .people-highlight {
+    border-radius: 15px !important;
+  }
+
+  .moment-image,
+  .moment-image img {
+    border-radius: 15px 15px 0 0 !important;
+  }
+
+  .mission-image.main,
+  .mission-image.main img,
+  .mission-small-image,
+  .mission-small-image img,
+  .people-image,
+  .people-image img {
+    border-radius: 16px !important;
+  }
+
+  .photo-strip-item,
+  .photo-strip-item img {
+    border-radius: 14px !important;
+  }
+
+}

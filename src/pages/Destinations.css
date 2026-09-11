@@ -3534,3 +3534,98 @@
     -webkit-appearance: none;
     appearance: none;
 }
+/* =========================================================
+   ROUNDED CARDS
+========================================================= */
+
+/* Main destination cards */
+.eurovia-destination-card {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+/* Destination card image */
+.eurovia-card-image {
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+}
+
+/* Destination card content */
+.eurovia-card-content {
+  border-radius: 0 0 28px 28px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TRAVEL MOOD CARDS
+========================================================= */
+
+.destination-mood-card {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.mood-image {
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+}
+
+.mood-content {
+  border-radius: 0 0 28px 28px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.eurovia-destination-card,
+.destination-mood-card {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.eurovia-destination-card:hover,
+.destination-mood-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.14);
+}
+
+
+/* Image smooth zoom */
+.eurovia-card-image img,
+.mood-image img {
+  transition: transform 0.7s ease;
+}
+
+.eurovia-destination-card:hover .eurovia-card-image img,
+.destination-mood-card:hover .mood-image img {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .eurovia-destination-card,
+  .destination-mood-card {
+    border-radius: 20px;
+  }
+
+  .eurovia-card-image,
+  .mood-image {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .eurovia-card-content,
+  .mood-content {
+    border-radius: 0 0 20px 20px;
+  }
+
+}

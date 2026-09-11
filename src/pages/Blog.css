@@ -1466,3 +1466,54 @@
   border-radius: 30px;
  
 }
+/* =========================================================
+   BLOG CARDS - ROUNDED
+========================================================= */
+
+/* Featured story */
+.featured-blog {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+
+/* Journal / Blog cards */
+.journal-card {
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+
+/* Images inside cards */
+.featured-blog-image,
+.journal-image {
+  overflow: hidden;
+}
+
+
+/* Newsletter card */
+.blog-newsletter-box {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .featured-blog {
+    border-radius: 20px;
+  }
+
+  .journal-card {
+    border-radius: 20px;
+  }
+
+  .blog-newsletter-box {
+    border-radius: 20px;
+  }
+
+}

@@ -1882,3 +1882,105 @@
 .map-plan-button{
   border-radius: 30px;
 }
+/* =========================================================
+   CONTACT PAGE - ALL CARDS ROUNDED
+========================================================= */
+
+/* Contact info cards */
+.contact-info-card {
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+
+/* Main form + side panel */
+.contact-form-wrapper,
+.contact-side-panel {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+
+/* Location card */
+.location-card {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+/* Map wrapper */
+.contact-map-wrapper {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+
+/* Map overlay card */
+.map-overlay-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+/* Map details */
+.map-details {
+  border-radius: 0 28px 28px 0;
+  overflow: hidden;
+}
+
+
+/* FAQ items */
+.contact-help-list details {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ICON BOXES
+========================================================= */
+
+.contact-info-icon,
+.side-detail-icon,
+.location-card-icon,
+.map-info-icon {
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .contact-info-card {
+    border-radius: 20px;
+  }
+
+  .contact-form-wrapper,
+  .contact-side-panel {
+    border-radius: 22px;
+  }
+
+  .location-card {
+    border-radius: 20px;
+  }
+
+  .contact-map-wrapper {
+    border-radius: 22px;
+  }
+
+  .map-overlay-card {
+    border-radius: 16px;
+  }
+
+  .map-details {
+    border-radius: 0 0 22px 22px;
+  }
+
+  .contact-help-list details {
+    border-radius: 15px;
+  }
+
+}
