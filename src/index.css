@@ -109,3 +109,56 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+:root {
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Playfair Display", serif;
+}
+
+/* =========================
+   GLOBAL TYPOGRAPHY
+========================= */
+
+* {
+  font-family: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* All headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Paragraphs */
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Buttons & links */
+button,
+a {
+  font-family: var(--font-body);
+}
+
+/* Labels / categories */
+.eyebrow,
+.category,
+.card-category,
+.label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

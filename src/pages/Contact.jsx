@@ -867,49 +867,7 @@ const Contact = () => {
           FINAL CTA
       ===================================================== */}
 
-            <section className="contact-final-cta">
-
-                <div className="container">
-
-                    <div className="contact-final-inner">
-
-                        <div className="final-cta-number">
-                            05
-                        </div>
-
-                        <div className="final-cta-content">
-
-                            <span>
-                                YOUR NEXT CHAPTER
-                            </span>
-
-                            <h2>
-                                Ready to see
-                                <br />
-                                <em>Europe differently?</em>
-                            </h2>
-
-                        </div>
-
-                        <a href="#contact-form">
-
-                            <span>Start planning</span>
-
-                            <strong>
-                                <ArrowUpRight size={19} />
-                            </strong>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div className="final-cta-word">
-                    EUROPE
-                </div>
-
-            </section>
+          
 
         </div>
     );

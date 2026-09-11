@@ -1,0 +1,153 @@
+.whatsapp-actions {
+  position: fixed;
+  right: 18px;
+  bottom: 12px;
+  z-index: 99999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+.top-button {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  border: 1px solid #dfcda9;
+
+  background: #fffdf9;
+  color: #33302d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  cursor: pointer;
+
+  box-shadow: 0 5px 20px rgba(50, 35, 20, 0.10);
+
+  transition: 0.3s ease;
+}
+
+.top-button:hover {
+  transform: translateY(-4px);
+  background: #f7eee1;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-button {
+  width: 70px;
+  height: 70px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #1db954;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.35);
+
+  transition: 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-5px) scale(1.04);
+
+  box-shadow: 0 12px 30px rgba(29, 185, 84, 0.45);
+}
+
+
+/* Proper WhatsApp Logo */
+
+.whatsapp-button svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 769px) {
+  .whatsapp-actions {
+    display: flex !important;
+    right: 18px;
+    bottom: 12px;
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .whatsapp-actions {
+    right: 13px;
+    bottom: 13px;
+    gap: 11px;
+  }
+
+  .top-button {
+    width: 47px;
+    height: 47px;
+  }
+
+  .whatsapp-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .whatsapp-button svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .whatsapp-actions {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .top-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .whatsapp-button {
+    width: 57px;
+    height: 57px;
+  }
+
+  .whatsapp-button svg {
+    width: 30px;
+    height: 30px;
+  }
+}

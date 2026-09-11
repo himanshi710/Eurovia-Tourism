@@ -385,7 +385,7 @@ const Gallery = () => {
         <div className="gallery-video-image">
 
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=90"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjk2kd2-EbbfZ7GQQ440YdboXBSBEisiFL-GSNfE6GUw&s=10"
             alt="European journey"
           />
 

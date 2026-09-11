@@ -5,6 +5,9 @@ import {
   ArrowUpRight,
   Menu,
   X,
+  Phone,
+  MessageCircle,
+  CalendarDays,
 } from "lucide-react";
 
 import "./Navbar.css";
@@ -53,11 +56,54 @@ const Navbar = () => {
     setOpen(false);
   };
 
+  const openWhatsApp = () => {
+    window.open(
+      "https://wa.me/919876543210",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <header className="eurovia-navbar">
 
       {/* =================================================
-          NAVBAR INNER
+          TOP INFO BAR
+      ================================================= */}
+
+      <div className="navbar-topbar">
+        <div className="navbar-topbar-container">
+
+          <div className="topbar-left">
+            <span className="topbar-dot"></span>
+
+            <span>
+              Discover Europe — curated journeys, unforgettable
+              experiences.
+            </span>
+          </div>
+
+          <div className="topbar-right">
+
+            <a href="tel:+919876543210" className="topbar-phone">
+              <Phone size={14} />
+              <span>+91 98765 43210</span>
+            </a>
+
+            <span className="topbar-divider"></span>
+
+            <span className="topbar-time">
+              Mon – Sat : 9:00 AM – 8:00 PM
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      {/* =================================================
+          MAIN NAVBAR
       ================================================= */}
 
       <div className="navbar-container">
@@ -71,13 +117,23 @@ const Navbar = () => {
           className="eurovia-logo"
           onClick={closeMenu}
         >
-          <span className="logo-main">
-            EURO<span>VIA</span>
-          </span>
 
-          <span className="logo-sub">
-            EUROPE · TRAVEL · STORIES
-          </span>
+          <div className="logo-mark">
+            <span>EU</span>
+          </div>
+
+          <div className="logo-content">
+
+            <span className="logo-main">
+              EURO<span>VIA</span>
+            </span>
+
+            <span className="logo-sub">
+              EUROPE · TRAVEL · STORIES
+            </span>
+
+          </div>
+
         </Link>
 
 
@@ -129,20 +185,53 @@ const Navbar = () => {
 
 
           {/* =================================================
-              BOOK NOW
+              NAV ACTIONS
           ================================================= */}
 
-          <Link
-            to="/contact"
-            className="nav-book"
-            onClick={closeMenu}
-          >
-            <span>Book Now</span>
+          <div className="nav-actions">
 
-            <span className="nav-book-icon">
-              <ArrowUpRight size={16} />
-            </span>
-          </Link>
+            {/* PHONE */}
+
+            <a
+              href="tel:+919876543210"
+              className="nav-icon-btn phone-btn"
+              aria-label="Call us"
+            >
+              <Phone size={18} />
+            </a>
+
+
+            {/* WHATSAPP */}
+
+            <button
+              type="button"
+              className="nav-icon-btn whatsapp-nav-btn"
+              onClick={openWhatsApp}
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={19} />
+            </button>
+
+
+            {/* BOOK NOW */}
+
+            <Link
+              to="/contact"
+              className="nav-book"
+              onClick={closeMenu}
+            >
+
+              <CalendarDays size={17} />
+
+              <span>Book Your Tour</span>
+
+              <span className="nav-book-icon">
+                <ArrowUpRight size={15} />
+              </span>
+
+            </Link>
+
+          </div>
 
         </nav>
 
@@ -173,7 +262,7 @@ const Navbar = () => {
 
 
       {/* =================================================
-          MOBILE MENU OVERLAY
+          MOBILE OVERLAY
       ================================================= */}
 
       {open && (

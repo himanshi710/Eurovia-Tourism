@@ -1483,7 +1483,9 @@
 
 }
 
-
+.contact-hero-btn{
+  border-radius: 30px;
+}
 /* =========================
    CONTACT MAP SECTION
 ========================= */

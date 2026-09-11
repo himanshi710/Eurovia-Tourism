@@ -2243,3 +2243,25 @@
   }
 
 }
+.hero-primary-btn,
+.hero-secondary-btn {
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+.experience-feature, 
+.why-section, 
+.destinations-preview,
+.home-intro,
+.tour-heading{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

@@ -2823,3 +2823,714 @@
     }
 
 }
+/* =========================================================
+   EUROVIA DESTINATIONS HERO
+========================================================= */
+
+.destinations-hero {
+    position: relative !important;
+
+    width: 100%;
+    height: 100vh !important;
+    min-height: 760px !important;
+
+    overflow: hidden !important;
+
+    isolation: isolate;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   HERO SLIDES
+========================================================= */
+
+.destinations-hero-slides {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    overflow: hidden !important;
+
+    z-index: 0 !important;
+}
+
+
+.destinations-hero-slide {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 0;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+
+.destinations-hero-slide.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    z-index: 1 !important;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.destinations-hero-slide img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    display: block;
+
+    transform: scale(1);
+
+    transition: transform 6s ease;
+}
+
+
+.destinations-hero-slide.active img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   OLD HERO IMAGE HIDE
+========================================================= */
+
+.destinations-hero-image {
+    display: none !important;
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.destinations-hero-overlay {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2 !important;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 12, 18, 0.82) 0%,
+            rgba(8, 12, 18, 0.55) 42%,
+            rgba(8, 12, 18, 0.38) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(8, 12, 18, 0.48) 0%,
+            rgba(8, 12, 18, 0.08) 45%,
+            rgba(8, 12, 18, 0.78) 100%
+        );
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.destinations-hero-grid {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 3 !important;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        125px 100%,
+        100% 125px;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.destinations-hero-container {
+    position: relative !important;
+
+    z-index: 5 !important;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.destinations-hero-content {
+    position: relative;
+
+    z-index: 6;
+
+    max-width: 900px;
+}
+
+
+/* =========================================================
+   HERO SIDE
+========================================================= */
+
+.destinations-hero-side {
+    position: absolute !important;
+
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 6 !important;
+}
+
+
+/* =========================================================
+   HERO BOTTOM
+========================================================= */
+
+.destinations-hero-bottom {
+    position: absolute !important;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    z-index: 7 !important;
+}
+
+
+/* =========================================================
+   CAROUSEL CONTROLS
+========================================================= */
+
+.destinations-carousel-controls {
+    position: absolute !important;
+
+    right: 50px;
+    bottom: 105px;
+
+    z-index: 10 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   ROUND ARROWS
+========================================================= */
+
+.destinations-carousel-arrow {
+    width: 52px !important;
+    height: 52px !important;
+
+    min-width: 52px;
+    min-height: 52px;
+
+    padding: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+
+    border-radius: 50% !important;
+
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.28) !important;
+
+    color: #ffffff !important;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.destinations-carousel-arrow:hover {
+    background: #f15b3a !important;
+
+    border-color: #f15b3a !important;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.destinations-carousel-dots {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+.destinations-carousel-dot {
+    width: 7px !important;
+    height: 7px !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: rgba(255, 255, 255, 0.45) !important;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.destinations-carousel-dot.active {
+    width: 26px !important;
+
+    border-radius: 999px !important;
+
+    background: #f15b3a !important;
+}
+
+
+/* =========================================================
+   VERY IMPORTANT
+   NEXT SECTIONS WILL NEVER COME OVER HERO
+========================================================= */
+
+.destinations-hero + .destinations-intro {
+    position: relative;
+
+    z-index: 30;
+
+    clear: both;
+}
+
+
+/* =========================================================
+   INTRO / OTHER SECTIONS
+========================================================= */
+
+.destinations-intro,
+.destination-collection,
+.destination-feature,
+.destination-moods,
+.europe-highlights {
+    position: relative;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .destinations-hero-content {
+        padding-top: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .destinations-hero {
+        min-height: 720px !important;
+        height: 100vh !important;
+    }
+
+    .destinations-hero-container {
+        align-items: center;
+    }
+
+    .destinations-hero-side {
+        display: none;
+    }
+
+    .destinations-carousel-controls {
+        right: 30px;
+        bottom: 105px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .destinations-hero {
+        height: 100svh !important;
+        min-height: 680px !important;
+    }
+
+    .destinations-hero-container {
+        height: 100%;
+    }
+
+    .destinations-hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .destinations-carousel-controls {
+        left: 20px;
+        right: auto;
+
+        bottom: 82px;
+    }
+
+    .destinations-carousel-arrow {
+        width: 44px !important;
+        height: 44px !important;
+
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .destinations-carousel-dots {
+        padding: 7px 10px;
+    }
+
+    .destinations-carousel-dot {
+        width: 6px !important;
+        height: 6px !important;
+    }
+
+    .destinations-carousel-dot.active {
+        width: 21px !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .destinations-hero {
+        min-height: 650px !important;
+    }
+
+    .destinations-carousel-controls {
+        left: 15px;
+
+        bottom: 72px;
+    }
+
+}
+/* =========================================================
+   TRAVEL MOOD
+   SCROLL REVEAL ANIMATION
+========================================================= */
+
+.destination-moods-grid {
+    overflow: hidden;
+}
+
+
+/* Starting position */
+
+.destination-mood-card.mood-card-reveal {
+    opacity: 0;
+
+    transform:
+        translateY(100px)
+        scale(0.94);
+
+    filter: blur(5px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s ease;
+}
+
+
+/* Visible position */
+
+.destination-mood-card.mood-card-reveal.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+/* =========================================================
+   ONE BY ONE DELAY
+========================================================= */
+
+.destination-mood-card.mood-card-1.is-visible {
+    transition-delay: 0.05s;
+}
+
+.destination-mood-card.mood-card-2.is-visible {
+    transition-delay: 0.20s;
+}
+
+.destination-mood-card.mood-card-3.is-visible {
+    transition-delay: 0.35s;
+}
+
+.destination-mood-card.mood-card-4.is-visible {
+    transition-delay: 0.50s;
+}
+
+
+/* =========================================================
+   IMAGE MOVEMENT
+========================================================= */
+
+.destination-mood-card .mood-image {
+    overflow: hidden;
+}
+
+.destination-mood-card .mood-image img {
+    transform: scale(1);
+
+    transition:
+        transform 1.2s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.destination-mood-card.is-visible:hover
+.mood-image img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.destination-mood-card.is-visible {
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.destination-mood-card.is-visible:hover {
+    transform:
+        translateY(-10px)
+        scale(1.01);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .destination-mood-card.mood-card-reveal {
+        transform:
+            translateY(70px)
+            scale(0.96);
+
+        filter: blur(3px);
+    }
+
+    .destination-mood-card.mood-card-1.is-visible {
+        transition-delay: 0.05s;
+    }
+
+    .destination-mood-card.mood-card-2.is-visible {
+        transition-delay: 0.15s;
+    }
+
+    .destination-mood-card.mood-card-3.is-visible {
+        transition-delay: 0.25s;
+    }
+
+    .destination-mood-card.mood-card-4.is-visible {
+        transition-delay: 0.35s;
+    }
+
+}
+/* =========================================================
+   GLOBAL ROUNDED BUTTONS
+========================================================= */
+
+/* Main buttons / CTA buttons */
+.destinations-page button,
+.destinations-page a.destinations-hero-btn,
+.destinations-page a.destination-feature-btn {
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   HERO BUTTON
+========================================================= */
+
+.destinations-hero-btn {
+    border-radius: 999px !important;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.destination-filters button {
+    border-radius: 999px !important;
+}
+
+
+/* =========================================================
+   FEATURE CTA
+========================================================= */
+
+.destination-feature-btn {
+    border-radius: 999px !important;
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS
+========================================================= */
+
+.destinations-carousel-arrow {
+    border-radius: 50% !important;
+}
+
+
+/* =========================================================
+   CAROUSEL DOTS
+========================================================= */
+
+.destinations-carousel-dot {
+    border-radius: 999px !important;
+}
+
+
+/* =========================================================
+   OPTIONAL: BETTER ROUNDED HOVER
+========================================================= */
+
+.destinations-hero-btn,
+.destination-feature-btn,
+.destination-filters button {
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.destinations-hero-btn:hover,
+.destination-feature-btn:hover,
+.destination-filters button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOOD DISCOVER JOURNEYS LINK
+   (link ko pill style dena ho to)
+========================================================= */
+
+.destination-mood-card .mood-content a {
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   REMOVE DEFAULT BUTTON CORNERS
+========================================================= */
+
+.destinations-page button {
+    -webkit-appearance: none;
+    appearance: none;
+}

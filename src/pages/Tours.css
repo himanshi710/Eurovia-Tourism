@@ -1645,3 +1645,50 @@
     font-size: 18px;
   }
 }
+@media (max-width: 1100px) {
+  .tours-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .tours-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Desktop - 3 cards in one row */
+@media (min-width: 992px) {
+  .tours-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .tours-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tours-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+.tour-primary-button, 
+.signature-button{
+  border-radius: 30px;
+}

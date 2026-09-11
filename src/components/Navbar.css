@@ -1,77 +1,172 @@
 /* =========================================================
    EUROVIA NAVBAR
-   Luxury European Travel
+   Orange + Teal Luxury Travel Theme
 ========================================================= */
 
-.eurovia-navbar {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    z-index: 9999;
-
-    height: 88px;
-
-    background: rgba(255, 255, 255, 0.96);
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    transition:
-        height 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease;
-}
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
 
 
-.eurovia-navbar::before {
-    content: "";
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-    position: absolute;
+:root {
+  --orange: #f15d30;
+  --teal: #00a8b5;
+  --white: #ffffff;
+  --black: #000000;
 
-    top: 0;
-    left: 0;
+  --dark: #111111;
+  --dark-2: #181818;
 
-    width: 100%;
-    height: 3px;
+  --gray: #666666;
+  --gray-light: #999999;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange) 0%,
-            var(--orange) 48%,
-            var(--teal) 48%,
-            var(--teal) 100%
-        );
+  --light: #f7f7f7;
+  --border: #e8e8e8;
+
+  --container: 1200px;
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.12);
+
+  --transition: all 0.35s ease;
 }
 
 
 /* =========================================================
-   CONTAINER
+   NAVBAR
+========================================================= */
+
+.eurovia-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(15px);
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.navbar-topbar {
+  width: 100%;
+
+  background: var(--dark);
+
+  color: var(--white);
+}
+
+.navbar-topbar-container {
+  width: min(calc(100% - 40px), var(--container));
+  min-height: 40px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+/* LEFT */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+.topbar-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--orange);
+
+  box-shadow: 0 0 0 4px rgba(241, 93, 48, 0.12);
+}
+
+
+/* RIGHT */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.topbar-phone {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--white);
+
+  transition: var(--transition);
+}
+
+.topbar-phone:hover {
+  color: var(--orange);
+}
+
+.topbar-phone svg {
+  color: var(--teal);
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 17px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   MAIN NAVBAR
 ========================================================= */
 
 .navbar-container {
-    position: relative;
+  width: min(calc(100% - 40px), var(--container));
+  min-height: 92px;
 
-    z-index: 2;
+  margin: 0 auto;
 
-    width: min(1380px, calc(100% - 60px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    height: 100%;
-
-    margin: 0 auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 35px;
+  gap: 30px;
 }
 
 
@@ -80,304 +175,376 @@
 ========================================================= */
 
 .eurovia-logo {
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    display: flex;
+  color: var(--dark);
 
-    flex-direction: column;
-
-    justify-content: center;
-
-    color: var(--black);
-
-    line-height: 1;
-
-    transition: var(--transition);
+  transition: var(--transition);
 }
-
 
 .eurovia-logo:hover {
-    color: var(--black);
+  color: var(--dark);
 }
 
+
+/* LOGO MARK */
+
+.logo-mark {
+  width: 49px;
+  height: 49px;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+
+  border-radius: 12px;
+
+  background: var(--dark);
+
+  color: var(--white);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+
+  transition: var(--transition);
+}
+
+.logo-mark::before {
+  content: "";
+
+  position: absolute;
+
+  width: 24px;
+  height: 24px;
+
+  top: -9px;
+  right: -9px;
+
+  border-radius: 50%;
+
+  background: var(--orange);
+}
+
+.logo-mark::after {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  bottom: -10px;
+  left: -8px;
+
+  border-radius: 50%;
+
+  background: var(--teal);
+}
+
+.logo-mark span {
+  position: relative;
+  z-index: 2;
+
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.eurovia-logo:hover .logo-mark {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+
+/* LOGO CONTENT */
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1;
+}
 
 .logo-main {
-    font-family: "Playfair Display", serif;
+  font-family: var(--heading-font);
 
-    font-size: 29px;
+  font-size: 27px;
+  font-weight: 600;
 
-    font-weight: 700;
+  letter-spacing: -0.7px;
 
-    letter-spacing: 3px;
-
-    line-height: 0.9;
+  color: var(--dark);
 }
-
 
 .logo-main span {
-    color: var(--orange);
+  color: var(--orange);
 }
 
-
 .logo-sub {
-    margin-top: 8px;
+  margin-top: 7px;
 
-    color: #888;
+  color: var(--gray);
 
-    font-size: 6px;
+  font-family: var(--body-font);
 
-    font-weight: 800;
+  font-size: 8px;
+  font-weight: 700;
 
-    letter-spacing: 2.6px;
-
-    white-space: nowrap;
+  letter-spacing: 2.2px;
 }
 
 
 /* =========================================================
-   MENU
+   NAV MENU
 ========================================================= */
 
 .navbar-menu {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-    align-items: center;
+  flex: 1;
 
-    justify-content: flex-end;
-
-    gap: 25px;
-
-    height: 100%;
+  gap: 25px;
 }
 
 
 /* =========================================================
-   LINKS
+   NAV LINKS
 ========================================================= */
 
 .navbar-links {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    align-items: center;
-
-    gap: 3px;
-
-    height: 100%;
+  gap: 4px;
 }
-
 
 .nav-link {
-    position: relative;
+  position: relative;
 
-    height: 100%;
+  display: inline-flex;
+  align-items: center;
 
-    display: flex;
+  padding: 34px 11px;
 
-    align-items: center;
+  color: var(--dark);
 
-    gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
 
-    padding: 0 9px;
+  white-space: nowrap;
 
-    color: #555;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.7px;
-
-    transition:
-        color 0.3s ease,
-        background 0.3s ease;
+  transition: var(--transition);
 }
 
 
-.nav-link:hover {
-    color: var(--orange);
-}
-
-
-.nav-link::after {
-    content: "";
-
-    position: absolute;
-
-    left: 9px;
-    right: 9px;
-
-    bottom: 20px;
-
-    height: 2px;
-
-    background: var(--orange);
-
-    transform: scaleX(0);
-
-    transform-origin: right;
-
-    transition:
-        transform 0.35s ease;
-}
-
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    transform: scaleX(1);
-
-    transform-origin: left;
-}
-
-
-.nav-link.active {
-    color: var(--black);
-}
-
-
-/* =========================================================
-   NUMBER
-========================================================= */
+/* NUMBER */
 
 .nav-number {
-    color: var(--teal);
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 8px;
-
-    font-weight: 600;
-
-    opacity: 0;
-
-    transform: translateY(4px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+  display: none;
 }
 
 
-.nav-link:hover .nav-number,
-.nav-link.active .nav-number {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
+/* TEXT */
 
 .nav-text {
-    white-space: nowrap;
+  position: relative;
+}
+
+
+/* UNDERLINE */
+
+.nav-text::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -9px;
+
+  width: 0;
+  height: 2px;
+
+  border-radius: 5px;
+
+  background: var(--orange);
+
+  transition: width 0.3s ease;
+}
+
+
+/* HOVER */
+
+.nav-link:hover {
+  color: var(--orange);
+}
+
+.nav-link:hover .nav-text::after {
+  width: 100%;
+}
+
+
+/* ACTIVE */
+
+.nav-link.active {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.nav-link.active .nav-text::after {
+  width: 100%;
 }
 
 
 /* =========================================================
-   BOOK NOW
+   NAV ACTIONS
+========================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ICON BUTTON
+========================================================= */
+
+.nav-icon-btn {
+  width: 47px;
+  height: 47px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+
+/* PHONE */
+
+.phone-btn {
+  border: 1px solid var(--border);
+
+  background: var(--white);
+
+  color: var(--dark);
+}
+
+.phone-btn:hover {
+  border-color: var(--orange);
+
+  background: var(--orange);
+
+  color: var(--white);
+
+  transform: translateY(-2px);
+}
+
+
+/* WHATSAPP */
+
+.whatsapp-nav-btn {
+  border: 1px solid var(--teal);
+
+  background: var(--teal);
+
+  color: var(--white);
+}
+
+.whatsapp-nav-btn:hover {
+  background: #008d98;
+
+  border-color: #008d98;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(0, 168, 181, 0.25);
+}
+
+
+/* =========================================================
+   BOOK BUTTON
 ========================================================= */
 
 .nav-book {
-    position: relative;
+  min-height: 48px;
 
-    min-width: 118px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    height: 42px;
+  gap: 8px;
 
-    display: inline-flex;
+  padding: 0 12px 0 17px;
 
-    align-items: center;
+  border-radius: 999px;
 
-    justify-content: center;
+  background: var(--orange);
 
-    gap: 10px;
+  color: var(--white);
 
-    padding: 0 10px 0 17px;
+  font-size: 12px;
+  font-weight: 700;
 
-    overflow: hidden;
+  white-space: nowrap;
 
-    color: var(--white);
+  box-shadow: 0 7px 20px rgba(241, 93, 48, 0.18);
 
-    background: var(--black);
-
-    border: 1px solid var(--black);
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.2px;
-
-    text-transform: uppercase;
-
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        border-color 0.35s ease,
-        transform 0.35s ease;
+  transition: var(--transition);
 }
-
-
-.nav-book::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 0;
-
-    background: var(--orange);
-
-    transition: width 0.4s ease;
-
-    z-index: 0;
-}
-
-
-.nav-book:hover::before {
-    width: 100%;
-}
-
 
 .nav-book:hover {
-    color: var(--white);
+  background: var(--dark);
 
-    border-color: var(--orange);
+  color: var(--white);
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 
-.nav-book > span:first-child,
+/* BOOK ICON */
+
+.nav-book > svg {
+  flex-shrink: 0;
+}
+
 .nav-book-icon {
-    position: relative;
+  width: 30px;
+  height: 30px;
 
-    z-index: 1;
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.17);
+
+  transition: var(--transition);
 }
-
-
-.nav-book-icon {
-    width: 26px;
-    height: 26px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: var(--black);
-
-    background: var(--white);
-
-    transition:
-        transform 0.35s ease;
-}
-
 
 .nav-book:hover .nav-book-icon {
-    transform: rotate(45deg);
+  background: var(--teal);
+
+  transform: rotate(45deg);
 }
 
 
@@ -386,32 +553,29 @@
 ========================================================= */
 
 .mobile-menu-btn {
-    display: none;
+  display: none;
 
-    width: 44px;
-    height: 44px;
+  width: 45px;
+  height: 45px;
 
-    align-items: center;
-    justify-content: center;
+  place-items: center;
 
-    border: 1px solid #ddd;
+  border: 1px solid var(--border);
+  border-radius: 50%;
 
-    background: var(--white);
+  background: var(--white);
 
-    color: var(--black);
+  color: var(--dark);
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: var(--transition);
+  transition: var(--transition);
 }
 
-
 .mobile-menu-btn:hover {
-    color: var(--white);
+  border-color: var(--orange);
 
-    background: var(--orange);
-
-    border-color: var(--orange);
+  color: var(--orange);
 }
 
 
@@ -420,7 +584,20 @@
 ========================================================= */
 
 .navbar-mobile-overlay {
-    display: none;
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  width: 100%;
+  height: 100vh;
+
+  border: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(3px);
 }
 
 
@@ -428,38 +605,93 @@
    LARGE DESKTOP
 ========================================================= */
 
-@media (max-width: 1250px) {
+@media (min-width: 1400px) {
 
-    .navbar-container {
-        width: min(1180px, calc(100% - 40px));
-    }
+  .navbar-topbar-container,
+  .navbar-container {
+    width: min(calc(100% - 70px), 1340px);
+  }
 
-    .navbar-menu {
-        gap: 12px;
-    }
+  .navbar-container {
+    min-height: 94px;
+  }
 
-    .navbar-links {
-        gap: 0;
-    }
+  .navbar-links {
+    gap: 7px;
+  }
 
-    .nav-link {
-        padding: 0 7px;
+  .nav-link {
+    padding-inline: 13px;
+    font-size: 14px;
+  }
 
-        font-size: 9px;
-    }
+  .logo-main {
+    font-size: 29px;
+  }
+}
 
-    .nav-link::after {
-        left: 7px;
-        right: 7px;
-    }
 
-    .nav-number {
-        display: none;
-    }
+/* =========================================================
+   LAPTOP
+========================================================= */
 
-    .nav-book {
-        min-width: 108px;
-    }
+@media (max-width: 1199px) {
+
+  .navbar-topbar-container,
+  .navbar-container {
+    width: calc(100% - 30px);
+  }
+
+  .navbar-container {
+    gap: 18px;
+  }
+
+  .navbar-menu {
+    gap: 12px;
+  }
+
+  .navbar-links {
+    gap: 0;
+  }
+
+  .nav-link {
+    padding-inline: 7px;
+
+    font-size: 11px;
+  }
+
+  .nav-icon-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-book {
+    min-height: 44px;
+
+    padding-left: 13px;
+    padding-right: 9px;
+
+    font-size: 10px;
+  }
+
+  .nav-book-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .logo-main {
+    font-size: 24px;
+  }
+
+  .logo-sub {
+    font-size: 7px;
+    letter-spacing: 1.8px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 
@@ -469,193 +701,120 @@
 
 @media (max-width: 991px) {
 
-    .eurovia-navbar {
-        height: 78px;
-    }
+  .navbar-topbar {
+    display: none;
+  }
 
-    .navbar-container {
-        width: calc(100% - 35px);
-    }
+  .navbar-container {
+    min-height: 76px;
 
-    .logo-main {
-        font-size: 26px;
-    }
+    width: calc(100% - 30px);
+  }
 
-    .logo-sub {
-        font-size: 5px;
+  .mobile-menu-btn {
+    display: grid;
 
-        letter-spacing: 2.2px;
-    }
+    position: relative;
+    z-index: 10002;
+  }
 
-    .mobile-menu-btn {
-        display: flex;
+  .navbar-menu {
+    position: fixed;
 
-        position: relative;
+    top: 0;
+    right: -100%;
 
-        z-index: 10002;
-    }
+    width: min(390px, 88%);
 
-    .navbar-menu {
-        position: fixed;
+    height: 100vh;
 
-        top: 0;
-        right: 0;
+    padding: 105px 25px 30px;
 
-        width: min(390px, 88vw);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
 
-        height: 100vh;
+    background: var(--white);
 
-        display: flex;
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.15);
 
-        flex-direction: column;
+    overflow-y: auto;
 
-        align-items: stretch;
+    transition: right 0.4s ease;
 
-        justify-content: flex-start;
+    z-index: 10001;
+  }
 
-        gap: 0;
+  .navbar-menu.menu-open {
+    right: 0;
+  }
 
-        padding: 105px 30px 35px;
+  .navbar-links {
+    width: 100%;
 
-        background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
-        box-shadow:
-            -20px 0 60px
-            rgba(0, 0, 0, 0.15);
+    gap: 0;
+  }
 
-        transform: translateX(105%);
+  .nav-link {
+    width: 100%;
 
-        transition:
-            transform 0.45s cubic-bezier(
-                0.77,
-                0,
-                0.18,
-                1
-            );
+    padding: 16px 5px;
 
-        overflow-y: auto;
+    border-bottom: 1px solid var(--border);
 
-        z-index: 10000;
-    }
+    font-size: 14px;
+  }
 
-    .navbar-menu.menu-open {
-        transform: translateX(0);
-    }
+  .nav-link.active {
+    color: var(--orange);
+  }
 
-    .navbar-links {
-        width: 100%;
+  .nav-number {
+    display: inline-block;
 
-        height: auto;
+    width: 35px;
 
-        display: flex;
+    color: var(--teal);
 
-        flex-direction: column;
+    font-size: 9px;
+    font-weight: 700;
 
-        align-items: stretch;
+    letter-spacing: 1px;
+  }
 
-        gap: 0;
-    }
+  .nav-text::after {
+    bottom: -5px;
+  }
 
-    .nav-link {
-        position: relative;
+  .nav-actions {
+    width: 100%;
 
-        width: 100%;
+    margin-top: 25px;
 
-        height: auto;
+    display: grid;
+    grid-template-columns: 48px 48px 1fr;
 
-        min-height: 58px;
+    gap: 9px;
+  }
 
-        display: flex;
-
-        align-items: center;
-
-        gap: 13px;
-
-        padding: 0 5px;
-
-        border-bottom: 1px solid #eee;
-
-        color: #444;
-
-        font-family: "Playfair Display", serif;
-
-        font-size: 19px;
-
-        font-weight: 500;
-
-        letter-spacing: 0;
-    }
-
-    .nav-link::after {
-        left: auto;
-        right: 5px;
-
-        bottom: 0;
-
-        width: 35px;
-        height: 2px;
-
-        transform: scaleX(0);
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-        transform: scaleX(1);
-    }
-
-    .nav-number {
-        display: block;
-
-        width: 25px;
-
-        color: var(--orange);
-
-        font-family: "DM Sans", sans-serif;
-
-        font-size: 7px;
-
-        font-weight: 800;
-
-        letter-spacing: 1px;
-
-        opacity: 1;
-
-        transform: none;
-    }
-
-    .nav-text {
-        transition:
-            transform 0.3s ease;
-    }
-
-    .nav-link:hover .nav-text {
-        transform: translateX(6px);
-    }
-
-    .nav-book {
-        width: 100%;
-
-        height: 50px;
-
-        margin-top: 25px;
-    }
-
-    .navbar-mobile-overlay {
-        position: fixed;
-
-        display: block;
-
-        inset: 0;
-
-        z-index: 9998;
-
-        border: 0;
-
-        background:
-            rgba(0, 0, 0, 0.45);
-
-        cursor: pointer;
-    }
+  .nav-icon-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .nav-book {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .navbar-mobile-overlay {
+    z-index: 10000;
+  }
 }
 
 
@@ -663,54 +822,35 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 
-    .eurovia-navbar {
-        height: 72px;
-    }
+  .navbar-container {
+    min-height: 70px;
 
-    .navbar-container {
-        width: calc(100% - 25px);
+    width: calc(100% - 24px);
+  }
 
-        gap: 15px;
-    }
+  .logo-mark {
+    width: 41px;
+    height: 41px;
 
-    .logo-main {
-        font-size: 23px;
+    border-radius: 10px;
+  }
 
-        letter-spacing: 2.3px;
-    }
+  .logo-main {
+    font-size: 22px;
+  }
 
-    .logo-sub {
-        margin-top: 6px;
+  .logo-sub {
+    margin-top: 5px;
 
-        font-size: 4.5px;
+    font-size: 6px;
+    letter-spacing: 1.5px;
+  }
 
-        letter-spacing: 1.7px;
-    }
-
-    .mobile-menu-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .navbar-menu {
-        width: 88vw;
-
-        padding: 95px 22px 30px;
-    }
-
-    .nav-link {
-        min-height: 55px;
-
-        font-size: 18px;
-    }
-
-    .nav-book {
-        margin-top: 22px;
-
-        height: 48px;
-    }
+  .navbar-menu {
+    width: min(350px, 90%);
+  }
 }
 
 
@@ -718,20 +858,94 @@
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
 
-    .logo-main {
-        font-size: 21px;
-    }
+  .navbar-container {
+    width: calc(100% - 20px);
+  }
 
-    .logo-sub {
-        font-size: 4px;
+  .logo-mark {
+    width: 39px;
+    height: 39px;
+  }
 
-        letter-spacing: 1.4px;
-    }
+  .logo-main {
+    font-size: 20px;
+  }
 
-    .navbar-menu {
-        width: 92vw;
-    }
+  .logo-sub {
+    font-size: 5.5px;
+    letter-spacing: 1.25px;
+  }
 
+  .mobile-menu-btn {
+    width: 41px;
+    height: 41px;
+  }
+
+  .navbar-menu {
+    width: 92%;
+
+    padding: 95px 20px 25px;
+  }
+
+  .nav-link {
+    padding: 14px 3px;
+
+    font-size: 13px;
+  }
+
+  .nav-actions {
+    grid-template-columns: 45px 45px 1fr;
+  }
+
+  .nav-icon-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .nav-book {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .logo-sub {
+    display: none;
+  }
+
+  .logo-main {
+    font-size: 19px;
+  }
+
+  .logo-mark {
+    width: 37px;
+    height: 37px;
+  }
+
+  .mobile-menu-btn {
+    width: 39px;
+    height: 39px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .eurovia-navbar *,
+  .eurovia-navbar *::before,
+  .eurovia-navbar *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

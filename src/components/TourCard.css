@@ -1,127 +1,521 @@
+/* =========================================================
+   TOUR CARD
+========================================================= */
+
 .tour-card {
+  position: relative;
   background: var(--white);
-
   border: 1px solid var(--border);
-
+  border-radius: var(--radius-lg);
   overflow: hidden;
-
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
 }
 
 .tour-card:hover {
-  transform: translateY(-7px);
-
+  transform: translateY(-8px);
   box-shadow: var(--shadow-md);
 }
 
-.tour-image {
-  position: relative;
 
-  height: 270px;
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.tour-card-image {
+  position: relative;
+  width: 100%;
+  height: 245px;
+  overflow: hidden;
+  background: var(--light);
+}
+
+.tour-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition:
+    transform 0.7s ease,
+    filter 0.5s ease;
+}
+
+.tour-card:hover .tour-card-image img {
+  transform: scale(1.07);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.tour-card-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28),
+      transparent 35%,
+      rgba(0, 0, 0, 0.58)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DURATION BADGE
+========================================================= */
+
+.tour-duration-badge {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 12px;
+
+  background: rgba(17, 17, 17, 0.88);
+  color: var(--white);
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  line-height: 1;
+
+  backdrop-filter: blur(6px);
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.tour-image-location {
+  position: absolute;
+  left: 13px;
+  bottom: 13px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--white);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  z-index: 2;
+
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.tour-image-location svg {
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.tour-card-number {
+  position: absolute;
+  right: 14px;
+  bottom: 13px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-radius: 50%;
+
+  color: var(--white);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.tour-card-body {
+  padding: 18px 17px 16px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.tour-card-body h3 {
+  margin: 0 0 8px;
+
+  color: var(--dark);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.tour-card-description {
+  margin: 0 0 12px;
+
+  color: var(--gray);
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
   overflow: hidden;
 }
 
-.tour-image img {
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
+/* =========================================================
+   TAGS
+========================================================= */
 
-  transition: transform 0.7s ease;
+.tour-card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid var(--border);
 }
 
-.tour-card:hover .tour-image img {
-  transform: scale(1.08);
-}
+.tour-card-tags span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.tour-category {
-  position: absolute;
+  padding: 5px 9px;
 
-  top: 17px;
-  left: 17px;
+  border-radius: 999px;
 
-  padding: 7px 11px;
+  background: rgba(241, 93, 48, 0.08);
+  border: 1px solid rgba(241, 93, 48, 0.18);
 
-  background: var(--teal);
-  color: var(--white);
+  color: var(--orange);
 
   font-size: 9px;
   font-weight: 700;
-
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 0.45px;
 }
 
-.tour-price {
-  position: absolute;
 
-  right: 17px;
-  bottom: 17px;
+/* =========================================================
+   DETAILS
+========================================================= */
 
-  padding: 8px 12px;
+.tour-card-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-  background: var(--white);
-  color: var(--black);
+  gap: 10px;
 
-  font-size: 11px;
-  font-weight: 700;
+  padding: 13px 0;
+
+  border-bottom: 1px solid var(--border);
 }
 
-.tour-content {
-  padding: 25px;
-}
-
-.tour-meta {
+.tour-detail {
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 6px;
 
-  margin-bottom: 13px;
+  min-width: 0;
 }
 
-.tour-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.tour-detail svg {
+  width: 15px;
+  height: 15px;
+
+  color: var(--orange);
+
+  flex-shrink: 0;
+}
+
+.tour-detail span {
+  min-width: 0;
+}
+
+.tour-detail strong {
+  display: block;
 
   color: var(--gray);
 
   font-size: 10px;
+  line-height: 1.35;
+  font-weight: 500;
+
+  white-space: nowrap;
 }
 
-.tour-meta svg {
-  color: var(--orange);
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.tour-card-price {
+  padding: 13px 0 15px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.tour-content h3 {
-  margin-bottom: 20px;
+.tour-card-price span {
+  color: var(--gray);
 
-  font-family: "Playfair Display", serif;
-
-  font-size: 27px;
-  line-height: 1.2;
+  font-size: 9px;
   font-weight: 600;
+  letter-spacing: 0.7px;
 
-  color: var(--black);
+  margin-bottom: 2px;
 }
 
-.tour-link {
-  display: inline-flex;
+.tour-card-price strong {
+  color: var(--orange);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.tour-card-price small {
+  margin-top: 2px;
+
+  color: var(--gray-light);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.tour-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+
+  gap: 8px;
+
+  margin-top: auto;
+}
+
+
+/* =========================================================
+   VIEW DETAILS
+========================================================= */
+
+.tour-view-btn {
+  min-height: 43px;
+
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
 
-  color: var(--orange);
+  padding: 10px 13px;
+
+  background: var(--orange);
+  color: var(--white);
+
+  border: 1px solid var(--orange);
+  border-radius: 999px;
+
+  text-decoration: none;
 
   font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 
   transition: var(--transition);
 }
 
-.tour-link:hover {
-  color: var(--teal);
-  gap: 12px;
+.tour-view-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.tour-view-btn:hover {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+
+  transform: translateY(-2px);
+}
+
+.tour-view-btn:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   ENQUIRE NOW
+========================================================= */
+
+.tour-enquire-btn {
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 10px 13px;
+
+  background: var(--teal);
+  color: var(--white);
+
+  border: 1px solid var(--teal);
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.tour-enquire-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.tour-enquire-btn:hover {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+
+  transform: translateY(-2px);
+}
+
+.tour-enquire-btn:hover svg {
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.tour-view-btn:focus-visible,
+.tour-enquire-btn:focus-visible {
+  outline: 3px solid rgba(0, 168, 181, 0.25);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .tour-card-image {
+    height: 225px;
+  }
+
+  .tour-card-body {
+    padding: 16px 15px 15px;
+  }
+
+  .tour-card-body h3 {
+    font-size: 18px;
+  }
+
+  .tour-card-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+  .tour-card-image {
+    height: 230px;
+  }
+
+  .tour-card-body {
+    padding: 17px 15px 15px;
+  }
+
+  .tour-card-body h3 {
+    font-size: 19px;
+  }
+
+  .tour-card-description {
+    font-size: 11px;
+  }
+
+  .tour-card-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tour-detail strong {
+    font-size: 9px;
+  }
+
+  .tour-card-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tour-view-btn,
+  .tour-enquire-btn {
+    min-height: 42px;
+    font-size: 10px;
+    padding: 9px 8px;
+  }
+
 }

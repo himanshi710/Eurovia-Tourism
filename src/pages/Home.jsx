@@ -155,7 +155,7 @@ const tours = [
   {
     id: "swiss-alps",
     image:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdx6qHxy6phR4BRBb0iIjnEHh6ug3C4uTyTSzgqqHW2A&s=10",
     category: "ADVENTURE",
     title: "Swiss Alpine Escape",
     location: "Interlaken · Zermatt",
@@ -280,9 +280,8 @@ const Home = () => {
           {heroSlides.map((slide, index) => (
 
             <div
-              className={`hero-slide ${
-                index === activeSlide ? "active" : ""
-              }`}
+              className={`hero-slide ${index === activeSlide ? "active" : ""
+                }`}
               key={slide.id}
             >
 
@@ -445,7 +444,7 @@ const Home = () => {
         <div className="hero-carousel-controls">
 
           <button
-            className="hero-control-arrow"
+            className="hero-control-arrow btn-rounded-5"
             onClick={previousSlide}
             aria-label="Previous destination"
           >
@@ -459,9 +458,8 @@ const Home = () => {
 
               <button
                 key={slide.id}
-                className={`hero-dot ${
-                  index === activeSlide ? "active" : ""
-                }`}
+                className={`hero-dot ${index === activeSlide ? "active" : ""
+                  }`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to ${slide.title}`}
               >
@@ -968,24 +966,7 @@ const Home = () => {
 
         <div className="container">
 
-          <div className="why-header">
-
-            <span className="section-label">
-              WHY EUROVIA
-            </span>
-
-            <h2 className="section-title">
-
-              Thoughtful travel.
-
-              <br />
-
-              <span>Beautifully done.</span>
-
-            </h2>
-
-          </div>
-
+        
 
           <div className="why-grid">
 
@@ -1088,9 +1069,8 @@ const Home = () => {
             {testimonials.map((testimonial, index) => (
 
               <article
-                className={`testimonial-card ${
-                  index === 1 ? "featured" : ""
-                }`}
+                className={`testimonial-card ${index === 1 ? "featured" : ""
+                  }`}
                 key={testimonial.name}
               >
 
@@ -1155,68 +1135,7 @@ const Home = () => {
           NEWSLETTER
       ========================================= */}
 
-      <section className="newsletter-section">
-
-        <div className="container">
-
-          <div className="newsletter-box">
-
-            <div className="newsletter-content">
-
-              <span className="section-label">
-                THE EUROVIA JOURNAL
-              </span>
-
-              <h2>
-
-                Get inspired
-
-                <br />
-
-                <span>to go further.</span>
-
-              </h2>
-
-
-              <p>
-                Beautiful places, hidden gems and travel
-                inspiration delivered to your inbox.
-              </p>
-
-            </div>
-
-
-            <form className="newsletter-form">
-
-              <input
-                type="email"
-                placeholder="Your email address"
-              />
-
-              <button type="submit">
-
-                Subscribe
-
-                <ArrowUpRight size={17} />
-
-              </button>
-
-
-              <small>
-
-                <Check size={13} />
-
-                No spam. Just beautiful travel stories.
-
-              </small>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </section>
+    
 
     </div>
   );

@@ -130,84 +130,6 @@ const About = () => {
 
       </section>
 
-
-      {/* =================================================
-          STORY INTRO
-      ================================================= */}
-
-      <section className="about-story section-padding">
-
-        <div className="container">
-
-          <div className="about-story-grid">
-
-            <div className="story-label-column">
-
-              <span className="section-label">
-                THE EUROVIA STORY
-              </span>
-
-              <div className="story-number">
-                01
-              </div>
-
-              <div className="story-mini">
-                <span>DISCOVER</span>
-                <span>FEEL</span>
-                <span>REMEMBER</span>
-              </div>
-
-            </div>
-
-            <div className="story-main">
-
-              <h2>
-                Europe has a way
-                <br />
-                of making you
-                <br />
-                <span>feel alive.</span>
-              </h2>
-
-              <p className="story-lead">
-                Maybe it is the first espresso in a tiny Roman café.
-                Maybe it is a train disappearing into the Swiss
-                mountains or the sound of waves meeting a Greek island.
-              </p>
-
-              <p>
-                Eurovia was created for travellers who want more than a
-                checklist. We design journeys around those little moments
-                that make a place unforgettable.
-              </p>
-
-              <p>
-                Our team combines local knowledge, thoughtful planning
-                and a love for beautiful places to create European
-                adventures that feel personal, effortless and completely
-                yours.
-              </p>
-
-              <Link
-                to="/destinations"
-                className="story-link"
-              >
-                Explore Our Destinations
-                <ArrowUpRight size={18} />
-              </Link>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      
-
-
       {/* =================================================
           TRAVEL MOMENTS
       ================================================= */}
@@ -731,48 +653,7 @@ const About = () => {
           CTA
       ================================================= */}
 
-      <section className="about-cta">
-
-        <div className="about-cta-watermark">
-          EUROPE
-        </div>
-
-        <div className="container">
-
-          <div className="about-cta-inner">
-
-            <div>
-
-              <span>
-                READY TO START?
-              </span>
-
-              <h2>
-                Your Europe
-                <br />
-                story starts <em>here.</em>
-              </h2>
-
-              <p>
-                Tell us where you want to go.
-                We'll help you decide how you want to feel.
-              </p>
-
-            </div>
-
-            <Link
-              to="/contact"
-              className="about-cta-button"
-            >
-              Start Planning
-              <ArrowUpRight size={20} />
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
+    
 
     </div>
   );

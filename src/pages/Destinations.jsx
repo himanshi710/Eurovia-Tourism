@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -6,6 +6,8 @@ import {
     ArrowUpRight,
     BedDouble,
     CalendarDays,
+    ChevronLeft,
+    ChevronRight,
     Compass,
     Globe2,
     MapPin,
@@ -242,7 +244,100 @@ const slugify = (text) =>
 // =========================================================
 
 const Destinations = () => {
+
     const [activeFilter, setActiveFilter] = useState("all");
+
+    // =====================================================
+    // HERO CAROUSEL
+    // =====================================================
+
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    const nextSlide = () => {
+        setActiveSlide(
+            (prev) => (prev + 1) % destinations.length
+        );
+    };
+
+    const prevSlide = () => {
+        setActiveSlide(
+            (prev) =>
+                (prev - 1 + destinations.length) %
+                destinations.length
+        );
+    };
+
+
+    // =====================================================
+    // HERO AUTO SLIDE
+    // =====================================================
+
+    useEffect(() => {
+
+        const timer = setInterval(() => {
+
+            setActiveSlide(
+                (prev) => (prev + 1) % destinations.length
+            );
+
+        }, 5000);
+
+        return () => clearInterval(timer);
+
+    }, []);
+
+
+    // =====================================================
+    // TRAVEL MOOD CARD SCROLL ANIMATION
+    // =====================================================
+
+    useEffect(() => {
+
+        const cards = document.querySelectorAll(
+            ".mood-card-reveal"
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15,
+            }
+        );
+
+
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+
+
+        return () => {
+
+            cards.forEach((card) => {
+                observer.unobserve(card);
+            });
+
+        };
+
+    }, []);
+
 
     const filteredDestinations =
         activeFilter === "all"
@@ -251,6 +346,7 @@ const Destinations = () => {
                 (destination) =>
                     destination.region === activeFilter
             );
+
 
     return (
         <div className="destinations-page">
@@ -261,31 +357,57 @@ const Destinations = () => {
 
             <section className="destinations-hero">
 
-                <div className="destinations-hero-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=2200&q=90"
-                        alt="European landscape"
-                    />
+                <div className="destinations-hero-slides">
+
+                    {destinations.map(
+                        (destination, index) => (
+
+                            <div
+                                key={destination.number}
+                                className={`destinations-hero-slide ${
+                                    index === activeSlide
+                                        ? "active"
+                                        : ""
+                                }`}
+                            >
+
+                                <img
+                                    src={destination.image}
+                                    alt={destination.name}
+                                />
+
+                            </div>
+
+                        )
+                    )}
+
                 </div>
+
 
                 <div className="destinations-hero-overlay" />
 
                 <div className="destinations-hero-grid" />
+
 
                 <div className="container destinations-hero-container">
 
                     <div className="destinations-hero-content">
 
                         <div className="destinations-hero-topline">
+
                             <span />
+
                             <small>
                                 EUROVIA · DESTINATIONS
                             </small>
+
                         </div>
+
 
                         <span className="destinations-eyebrow">
                             PLACES WORTH GETTING LOST IN
                         </span>
+
 
                         <h1>
                             Find your
@@ -293,11 +415,13 @@ const Destinations = () => {
                             <em>Europe.</em>
                         </h1>
 
+
                         <p>
                             From iconic capitals to quiet coastal
                             villages, discover the places that give
                             Europe its unforgettable character.
                         </p>
+
 
                         <div className="destinations-hero-actions">
 
@@ -309,9 +433,13 @@ const Destinations = () => {
                                 <ArrowUpRight size={18} />
                             </a>
 
+
                             <span className="destinations-hero-note">
+
                                 <Sparkles size={15} />
+
                                 28 COUNTRIES TO DISCOVER
+
                             </span>
 
                         </div>
@@ -321,13 +449,77 @@ const Destinations = () => {
 
                     <div className="destinations-hero-side">
 
-                        <span>SCROLL</span>
+                        <span>
+                            SCROLL
+                        </span>
 
                         <div className="hero-side-line" />
 
-                        <span>01 — 08</span>
+                        <span>
+                            {String(activeSlide + 1).padStart(
+                                2,
+                                "0"
+                            )}
+                            {" — "}
+                            {String(
+                                destinations.length
+                            ).padStart(2, "0")}
+                        </span>
 
                     </div>
+
+                </div>
+
+
+                {/* =================================================
+                    CAROUSEL BUTTONS
+                ================================================= */}
+
+                <div className="destinations-carousel-controls">
+
+                    <button
+                        type="button"
+                        className="destinations-carousel-arrow"
+                        onClick={prevSlide}
+                        aria-label="Previous destination"
+                    >
+                        <ChevronLeft size={20} />
+                    </button>
+
+
+                    <div className="destinations-carousel-dots">
+
+                        {destinations.map(
+                            (destination, index) => (
+
+                                <button
+                                    key={destination.number}
+                                    type="button"
+                                    className={`destinations-carousel-dot ${
+                                        index === activeSlide
+                                            ? "active"
+                                            : ""
+                                    }`}
+                                    onClick={() =>
+                                        setActiveSlide(index)
+                                    }
+                                    aria-label={`Go to ${destination.name}`}
+                                />
+
+                            )
+                        )}
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        className="destinations-carousel-arrow"
+                        onClick={nextSlide}
+                        aria-label="Next destination"
+                    >
+                        <ChevronRight size={20} />
+                    </button>
 
                 </div>
 
@@ -337,18 +529,35 @@ const Destinations = () => {
                     <div className="container">
 
                         <div>
-                            <span>EUROVIA</span>
-                            <strong>DESTINATIONS</strong>
+                            <span>
+                                EUROVIA
+                            </span>
+
+                            <strong>
+                                DESTINATIONS
+                            </strong>
                         </div>
 
-                        <div>
-                            <span>DISCOVER</span>
-                            <strong>EUROPE</strong>
-                        </div>
 
                         <div>
-                            <span>CURATED</span>
-                            <strong>JOURNEYS</strong>
+                            <span>
+                                DISCOVER
+                            </span>
+
+                            <strong>
+                                EUROPE
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <span>
+                                CURATED
+                            </span>
+
+                            <strong>
+                                JOURNEYS
+                            </strong>
                         </div>
 
                     </div>
@@ -398,7 +607,9 @@ const Destinations = () => {
                                 <br />
                                 one destination.
                                 <br />
-                                <em>It's a thousand stories.</em>
+                                <em>
+                                    It's a thousand stories.
+                                </em>
                             </h2>
 
                             <p>
@@ -418,7 +629,9 @@ const Destinations = () => {
                                 <Globe2 size={20} />
                             </div>
 
-                            <span>OUR APPROACH</span>
+                            <span>
+                                OUR APPROACH
+                            </span>
 
                             <strong>
                                 LESS
@@ -496,10 +709,6 @@ const Destinations = () => {
                     </div>
 
 
-                    {/* =================================================
-                        FILTERS
-                    ================================================= */}
-
                     <div className="destination-filters">
 
                         <span className="filter-title">
@@ -514,7 +723,8 @@ const Destinations = () => {
                                     type="button"
                                     key={filter.value}
                                     className={
-                                        activeFilter === filter.value
+                                        activeFilter ===
+                                        filter.value
                                             ? "active"
                                             : ""
                                     }
@@ -534,10 +744,6 @@ const Destinations = () => {
                     </div>
 
 
-                    {/* =================================================
-                        LUXURY PACKAGE CARDS
-                    ================================================= */}
-
                     <div className="destinations-grid">
 
                         {filteredDestinations.map(
@@ -551,33 +757,29 @@ const Destinations = () => {
                                     key={destination.number}
                                 >
 
-                                    {/* IMAGE */}
-
                                     <div className="eurovia-card-image">
 
                                         <img
-                                            src={destination.image}
-                                            alt={destination.name}
+                                            src={
+                                                destination.image
+                                            }
+                                            alt={
+                                                destination.name
+                                            }
                                         />
 
                                         <div className="eurovia-card-image-overlay" />
 
-
-                                        {/* NUMBER */}
 
                                         <span className="eurovia-card-number">
                                             {destination.number}
                                         </span>
 
 
-                                        {/* TAG */}
-
                                         <span className="eurovia-card-tag">
                                             {destination.tag}
                                         </span>
 
-
-                                        {/* PRICE RIBBON */}
 
                                         <div className="eurovia-card-price">
 
@@ -597,8 +799,6 @@ const Destinations = () => {
 
                                     </div>
 
-
-                                    {/* WHITE CONTENT */}
 
                                     <div className="eurovia-card-content">
 
@@ -639,8 +839,6 @@ const Destinations = () => {
                                         </p>
 
 
-                                        {/* FEATURES */}
-
                                         <div className="eurovia-card-features">
 
                                             <div className="eurovia-feature">
@@ -648,6 +846,7 @@ const Destinations = () => {
                                                 <BedDouble size={19} />
 
                                                 <span>
+
                                                     <strong>
                                                         {destination.stay}
                                                     </strong>
@@ -655,6 +854,7 @@ const Destinations = () => {
                                                     <small>
                                                         NIGHTS
                                                     </small>
+
                                                 </span>
 
                                             </div>
@@ -665,6 +865,7 @@ const Destinations = () => {
                                                 <Users size={19} />
 
                                                 <span>
+
                                                     <strong>
                                                         {destination.guests}
                                                     </strong>
@@ -672,6 +873,7 @@ const Destinations = () => {
                                                     <small>
                                                         GUESTS
                                                     </small>
+
                                                 </span>
 
                                             </div>
@@ -682,6 +884,7 @@ const Destinations = () => {
                                                 <Waves size={19} />
 
                                                 <span>
+
                                                     <strong>
                                                         {destination.type}
                                                     </strong>
@@ -689,14 +892,13 @@ const Destinations = () => {
                                                     <small>
                                                         EXPERIENCE
                                                     </small>
+
                                                 </span>
 
                                             </div>
 
                                         </div>
 
-
-                                        {/* CARD FOOTER */}
 
                                         <div className="eurovia-card-bottom">
 
@@ -707,7 +909,9 @@ const Destinations = () => {
 
                                             <strong>
                                                 EXPLORE
-                                                <ArrowRight size={15} />
+                                                <ArrowRight
+                                                    size={15}
+                                                />
                                             </strong>
 
                                         </div>
@@ -778,19 +982,32 @@ const Destinations = () => {
                         <div className="destination-feature-meta">
 
                             <div>
-                                <small>REGION</small>
-                                <strong>SWITZERLAND</strong>
+                                <small>
+                                    REGION
+                                </small>
+
+                                <strong>
+                                    SWITZERLAND
+                                </strong>
                             </div>
 
+
                             <div>
-                                <small>BEST FOR</small>
+                                <small>
+                                    BEST FOR
+                                </small>
+
                                 <strong>
                                     NATURE · TRAINS · ESCAPES
                                 </strong>
                             </div>
 
+
                             <div>
-                                <small>IDEAL STAY</small>
+                                <small>
+                                    IDEAL STAY
+                                </small>
+
                                 <strong>
                                     5 — 8 DAYS
                                 </strong>
@@ -849,14 +1066,14 @@ const Destinations = () => {
 
                     <div className="destination-moods-grid">
 
-                        {moods.map((mood) => {
+                        {moods.map((mood, index) => {
 
                             const Icon = mood.icon;
 
                             return (
 
                                 <article
-                                    className="destination-mood-card"
+                                    className={`destination-mood-card mood-card-reveal mood-card-${index + 1}`}
                                     key={mood.number}
                                 >
 
@@ -890,11 +1107,11 @@ const Destinations = () => {
                                             {mood.title}
                                         </h3>
 
-                                        <p>
+                                        <p className="text-light">
                                             {mood.text}
                                         </p>
 
-                                        <Link to="/tours">
+                                        <Link to="/tours" className="text-light">
                                             DISCOVER JOURNEYS
                                             <ArrowRight size={15} />
                                         </Link>
@@ -926,7 +1143,9 @@ const Destinations = () => {
 
                         <div className="highlights-label">
 
-                            <span>05</span>
+                            <span>
+                                05
+                            </span>
 
                             <div />
 
@@ -947,7 +1166,6 @@ const Destinations = () => {
 
                     <div className="highlights-grid">
 
-
                         <div className="highlight-intro">
 
                             <span className="destination-label">
@@ -963,10 +1181,13 @@ const Destinations = () => {
                             </h2>
 
                             <div className="highlight-line">
+
                                 <span />
+
                                 <small>
                                     DISCOVER MORE · TRAVEL DEEPER
                                 </small>
+
                             </div>
 
                         </div>
@@ -1059,22 +1280,31 @@ const Destinations = () => {
                     <div className="highlights-marquee">
 
                         <div>
+
                             PARIS
                             <span>✦</span>
+
                             ROME
                             <span>✦</span>
+
                             AMALFI
                             <span>✦</span>
+
                             ZURICH
                             <span>✦</span>
+
                             SANTORINI
                             <span>✦</span>
+
                             LISBON
                             <span>✦</span>
+
                             VIENNA
                             <span>✦</span>
+
                             BARCELONA
                             <span>✦</span>
+
                         </div>
 
                     </div>
@@ -1088,7 +1318,6 @@ const Destinations = () => {
                 FINAL CTA
             ===================================================== */}
 
-          
         </div>
     );
 };
