@@ -1878,4 +1878,7 @@
     font-size: 35px;
   }
 }
-
+.contact-submit,
+.map-plan-button{
+  border-radius: 30px;
+}

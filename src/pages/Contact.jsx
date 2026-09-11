@@ -601,124 +601,124 @@ const Contact = () => {
                 </div>
 
             </section>
-{/* =========================
+            {/* =========================
     EUROPE MAP
 ========================= */}
-<section className="contact-map-section">
-  <div className="container">
+            <section className="contact-map-section">
+                <div className="container">
 
-    <div className="contact-map-heading">
-      <div>
-        <span className="section-label">FIND US</span>
+                    <div className="contact-map-heading">
+                        <div>
+                            <span className="section-label">FIND US</span>
 
-        <h2>
-          Europe is <em>closer</em><br />
-          than you think.
-        </h2>
-      </div>
+                            <h2>
+                                Europe is <em>closer</em><br />
+                                than you think.
+                            </h2>
+                        </div>
 
-      <p>
-        From India to Europe's most unforgettable cities,
-        our travel specialists are ready to help you plan
-        every detail of your journey.
-      </p>
-    </div>
+                        <p>
+                            From India to Europe's most unforgettable cities,
+                            our travel specialists are ready to help you plan
+                            every detail of your journey.
+                        </p>
+                    </div>
 
-    <div className="contact-map-wrapper">
+                    <div className="contact-map-wrapper">
 
-      {/* Map */}
-      <div className="contact-map">
-        <iframe
-          title="Eurovia Europe Travel Map"
-          src="https://www.google.com/maps?q=Europe&output=embed"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+                        {/* Map */}
+                        <div className="contact-map">
+                            <iframe
+                                title="Eurovia Europe Travel Map"
+                                src="https://www.google.com/maps?q=Europe&output=embed"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            />
 
-        <div className="map-overlay-card">
-          <div className="map-card-number">EUROVIA</div>
+                            <div className="map-overlay-card">
+                                <div className="map-card-number">EUROVIA</div>
 
-          <h3>
-            Your journey<br />
-            starts here.
-          </h3>
+                                <h3>
+                                    Your journey<br />
+                                    starts here.
+                                </h3>
 
-          <span>
-            EUROPE · TRAVEL · STORIES
-          </span>
-        </div>
+                                <span>
+                                    EUROPE · TRAVEL · STORIES
+                                </span>
+                            </div>
 
-        <div className="map-pin">
-          <MapPin size={20} />
-        </div>
-      </div>
+                            <div className="map-pin">
+                                <MapPin size={20} />
+                            </div>
+                        </div>
 
-      {/* Location Details */}
-      <div className="map-details">
+                        {/* Location Details */}
+                        <div className="map-details">
 
-        <div className="map-detail-top">
-          <span>01</span>
-          <strong>OUR BASE</strong>
-        </div>
+                            <div className="map-detail-top">
+                                <span>01</span>
+                                <strong>OUR BASE</strong>
+                            </div>
 
-        <h3>
-          New Delhi,<br />
-          <em>India</em>
-        </h3>
+                            <h3>
+                                New Delhi,<br />
+                                <em>India</em>
+                            </h3>
 
-        <p>
-          Our travel team works from India while our
-          journeys take you across Europe's most iconic
-          cities, coastlines, islands and mountains.
-        </p>
+                            <p>
+                                Our travel team works from India while our
+                                journeys take you across Europe's most iconic
+                                cities, coastlines, islands and mountains.
+                            </p>
 
-        <div className="map-info-list">
+                            <div className="map-info-list">
 
-          <div className="map-info-item">
-            <div className="map-info-icon">
-              <MapPin size={18} />
-            </div>
+                                <div className="map-info-item">
+                                    <div className="map-info-icon">
+                                        <MapPin size={18} />
+                                    </div>
 
-            <div>
-              <small>OFFICE</small>
-              <strong>New Delhi, India</strong>
-            </div>
-          </div>
+                                    <div>
+                                        <small>OFFICE</small>
+                                        <strong>New Delhi, India</strong>
+                                    </div>
+                                </div>
 
-          <div className="map-info-item">
-            <div className="map-info-icon">
-              <Phone size={18} />
-            </div>
+                                <div className="map-info-item">
+                                    <div className="map-info-icon">
+                                        <Phone size={18} />
+                                    </div>
 
-            <div>
-              <small>PHONE</small>
-              <strong>+91 98765 43210</strong>
-            </div>
-          </div>
+                                    <div>
+                                        <small>PHONE</small>
+                                        <strong>+91 98765 43210</strong>
+                                    </div>
+                                </div>
 
-          <div className="map-info-item">
-            <div className="map-info-icon">
-              <Mail size={18} />
-            </div>
+                                <div className="map-info-item">
+                                    <div className="map-info-icon">
+                                        <Mail size={18} />
+                                    </div>
 
-            <div>
-              <small>EMAIL</small>
-              <strong>hello@eurovia.com</strong>
-            </div>
-          </div>
+                                    <div>
+                                        <small>EMAIL</small>
+                                        <strong>hello@eurovia.com</strong>
+                                    </div>
+                                </div>
 
-        </div>
+                            </div>
 
-        <Link to="/contact" className="map-plan-button">
-          Start Planning
-          <ArrowUpRight size={17} />
-        </Link>
+                            <Link to="/contact" className="map-plan-button">
+                                Start Planning
+                                <ArrowUpRight size={17} />
+                            </Link>
 
-      </div>
+                        </div>
 
-    </div>
-  </div>
-</section>
+                    </div>
+                </div>
+            </section>
 
 
 
@@ -867,7 +867,7 @@ const Contact = () => {
           FINAL CTA
       ===================================================== */}
 
-          
+
 
         </div>
     );
