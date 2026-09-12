@@ -1984,3 +1984,33 @@
   }
 
 }
+/* =========================================================
+   WEB3FORMS STATUS MESSAGE
+========================================================= */
+
+.form-result {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--teal);
+  background: #f3fbf8;
+  color: var(--black);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: .2px;
+}
+
+/* Submit button while sending */
+.contact-submit:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .form-result {
+    margin-top: 15px;
+    padding: 13px 15px;
+    font-size: 11px;
+  }
+}

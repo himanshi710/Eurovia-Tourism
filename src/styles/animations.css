@@ -1,5 +1,5 @@
 .fade-up {
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeDown 0.8s ease forwards;
 }
 
 .fade-in {
@@ -26,10 +26,11 @@
   transform: scale(1.08);
 }
 
-@keyframes fadeUp {
+/* TOP TO BOTTOM OPEN */
+@keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(35px);
+    transform: translateY(-35px);
   }
 
   to {

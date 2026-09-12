@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
     ArrowRight,
@@ -16,6 +16,89 @@ import {
 import "./Contact.css";
 
 const Contact = () => {
+
+    /* =====================================================
+       WEB3FORMS
+    ===================================================== */
+
+    const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setLoading(true);
+        setResult("");
+
+        const formData = new FormData(e.target);
+
+        formData.append(
+            "access_key",
+            "aaf44bbe-e249-4f70-b0ff-cf524003220d"
+        );
+
+        formData.append(
+            "subject",
+            "New Eurovia Travel Enquiry"
+        );
+
+        formData.append(
+            "from_name",
+            "Eurovia Website"
+        );
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: json,
+                }
+            );
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                setResult(
+                    "Thank you! Your enquiry has been sent successfully."
+                );
+
+                e.target.reset();
+
+            } else {
+
+                setResult(
+                    data.message ||
+                    "Something went wrong. Please try again."
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            setResult(
+                "Something went wrong. Please try again."
+            );
+
+        } finally {
+
+            setLoading(false);
+
+        }
+    };
+
+
     return (
         <div className="contact-page">
 
@@ -301,7 +384,7 @@ const Contact = () => {
 
                             <form
                                 className="contact-form"
-                                onSubmit={(e) => e.preventDefault()}
+                                onSubmit={handleSubmit}
                             >
 
                                 <div className="form-row">
@@ -311,6 +394,7 @@ const Contact = () => {
 
                                         <input
                                             type="text"
+                                            name="name"
                                             placeholder="Your full name"
                                             required
                                         />
@@ -321,6 +405,7 @@ const Contact = () => {
 
                                         <input
                                             type="email"
+                                            name="email"
                                             placeholder="you@example.com"
                                             required
                                         />
@@ -336,6 +421,7 @@ const Contact = () => {
 
                                         <input
                                             type="tel"
+                                            name="phone"
                                             placeholder="+91 00000 00000"
                                         />
                                     </div>
@@ -343,7 +429,11 @@ const Contact = () => {
                                     <div className="form-group">
                                         <label>04 · TRAVEL TYPE</label>
 
-                                        <select defaultValue="" required>
+                                        <select
+                                            name="travel_type"
+                                            defaultValue=""
+                                            required
+                                        >
                                             <option value="" disabled>
                                                 Select travel type
                                             </option>
@@ -364,7 +454,11 @@ const Contact = () => {
                                     <div className="form-group">
                                         <label>05 · DESTINATION</label>
 
-                                        <select defaultValue="" required>
+                                        <select
+                                            name="destination"
+                                            defaultValue=""
+                                            required
+                                        >
                                             <option value="" disabled>
                                                 Where do you want to go?
                                             </option>
@@ -385,6 +479,7 @@ const Contact = () => {
 
                                         <input
                                             type="text"
+                                            name="travel_dates"
                                             placeholder="e.g. June 2027"
                                         />
                                     </div>
@@ -397,6 +492,7 @@ const Contact = () => {
                                     <label>07 · YOUR MESSAGE</label>
 
                                     <textarea
+                                        name="message"
                                         rows="6"
                                         placeholder="Tell us what you're imagining..."
                                     />
@@ -414,8 +510,13 @@ const Contact = () => {
                                     <button
                                         type="submit"
                                         className="contact-submit"
+                                        disabled={loading}
                                     >
-                                        <span>Send my enquiry</span>
+                                        <span>
+                                            {loading
+                                                ? "Sending..."
+                                                : "Send my enquiry"}
+                                        </span>
 
                                         <strong>
                                             <Send size={17} />
@@ -423,6 +524,15 @@ const Contact = () => {
                                     </button>
 
                                 </div>
+
+
+                                {/* WEB3FORMS RESULT */}
+
+                                {result && (
+                                    <p className="form-result">
+                                        {result}
+                                    </p>
+                                )}
 
                             </form>
 
@@ -601,20 +711,29 @@ const Contact = () => {
                 </div>
 
             </section>
+
+
             {/* =========================
-    EUROPE MAP
-========================= */}
+                EUROPE MAP
+            ========================= */}
+
             <section className="contact-map-section">
+
                 <div className="container">
 
                     <div className="contact-map-heading">
+
                         <div>
-                            <span className="section-label">FIND US</span>
+
+                            <span className="section-label">
+                                FIND US
+                            </span>
 
                             <h2>
                                 Europe is <em>closer</em><br />
                                 than you think.
                             </h2>
+
                         </div>
 
                         <p>
@@ -622,12 +741,15 @@ const Contact = () => {
                             our travel specialists are ready to help you plan
                             every detail of your journey.
                         </p>
+
                     </div>
 
                     <div className="contact-map-wrapper">
 
                         {/* Map */}
+
                         <div className="contact-map">
+
                             <iframe
                                 title="Eurovia Europe Travel Map"
                                 src="https://www.google.com/maps?q=Europe&output=embed"
@@ -636,7 +758,10 @@ const Contact = () => {
                             />
 
                             <div className="map-overlay-card">
-                                <div className="map-card-number">EUROVIA</div>
+
+                                <div className="map-card-number">
+                                    EUROVIA
+                                </div>
 
                                 <h3>
                                     Your journey<br />
@@ -646,19 +771,26 @@ const Contact = () => {
                                 <span>
                                     EUROPE · TRAVEL · STORIES
                                 </span>
+
                             </div>
 
                             <div className="map-pin">
                                 <MapPin size={20} />
                             </div>
+
                         </div>
 
+
                         {/* Location Details */}
+
                         <div className="map-details">
 
                             <div className="map-detail-top">
+
                                 <span>01</span>
+
                                 <strong>OUR BASE</strong>
+
                             </div>
 
                             <h3>
@@ -675,6 +807,7 @@ const Contact = () => {
                             <div className="map-info-list">
 
                                 <div className="map-info-item">
+
                                     <div className="map-info-icon">
                                         <MapPin size={18} />
                                     </div>
@@ -683,9 +816,11 @@ const Contact = () => {
                                         <small>OFFICE</small>
                                         <strong>New Delhi, India</strong>
                                     </div>
+
                                 </div>
 
                                 <div className="map-info-item">
+
                                     <div className="map-info-icon">
                                         <Phone size={18} />
                                     </div>
@@ -694,9 +829,11 @@ const Contact = () => {
                                         <small>PHONE</small>
                                         <strong>+91 98765 43210</strong>
                                     </div>
+
                                 </div>
 
                                 <div className="map-info-item">
+
                                     <div className="map-info-icon">
                                         <Mail size={18} />
                                     </div>
@@ -705,11 +842,15 @@ const Contact = () => {
                                         <small>EMAIL</small>
                                         <strong>hello@eurovia.com</strong>
                                     </div>
+
                                 </div>
 
                             </div>
 
-                            <Link to="/contact" className="map-plan-button">
+                            <Link
+                                to="/contact"
+                                className="map-plan-button"
+                            >
                                 Start Planning
                                 <ArrowUpRight size={17} />
                             </Link>
@@ -717,10 +858,10 @@ const Contact = () => {
                         </div>
 
                     </div>
+
                 </div>
+
             </section>
-
-
 
 
             {/* =====================================================
@@ -734,9 +875,13 @@ const Contact = () => {
                     <div className="contact-help-header">
 
                         <div className="contact-info-index">
+
                             <span>04</span>
+
                             <i />
+
                             <strong>GOOD TO KNOW</strong>
+
                         </div>
 
                         <span>
@@ -765,7 +910,10 @@ const Contact = () => {
                                 you're looking for and we'll guide you.
                             </p>
 
-                            <Link to="/about" className="help-about-link">
+                            <Link
+                                to="/about"
+                                className="help-about-link"
+                            >
                                 Meet Eurovia
                                 <ArrowUpRight size={16} />
                             </Link>
@@ -778,12 +926,14 @@ const Contact = () => {
                             <details open>
 
                                 <summary>
+
                                     <span>
                                         <b>01</b>
                                         How far in advance should I plan?
                                     </span>
 
                                     <ArrowRight size={18} />
+
                                 </summary>
 
                                 <p>
@@ -798,12 +948,14 @@ const Contact = () => {
                             <details>
 
                                 <summary>
+
                                     <span>
                                         <b>02</b>
                                         Can you create a multi-country itinerary?
                                     </span>
 
                                     <ArrowRight size={18} />
+
                                 </summary>
 
                                 <p>
@@ -818,12 +970,14 @@ const Contact = () => {
                             <details>
 
                                 <summary>
+
                                     <span>
                                         <b>03</b>
                                         Do you plan luxury trips?
                                     </span>
 
                                     <ArrowRight size={18} />
+
                                 </summary>
 
                                 <p>
@@ -838,12 +992,14 @@ const Contact = () => {
                             <details>
 
                                 <summary>
+
                                     <span>
                                         <b>04</b>
                                         Can I customise an existing tour?
                                     </span>
 
                                     <ArrowRight size={18} />
+
                                 </summary>
 
                                 <p>
@@ -867,11 +1023,8 @@ const Contact = () => {
           FINAL CTA
       ===================================================== */}
 
-
-
         </div>
     );
 };
 
 export default Contact;
-

@@ -1,4 +1,10 @@
-import { HashRouter as BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  HashRouter as BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,9 +23,21 @@ import TourDetail from "./pages/TourDetail";
 
 import "./App.css";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <Navbar />
 
       <main>
@@ -27,17 +45,33 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
-          <Route path="/destinations" element={<Destinations />} />
+          <Route
+            path="/destinations"
+            element={<Destinations />}
+          />
+
           <Route
             path="/destinations/:id"
             element={<DestinationDetail />}
           />
 
           <Route path="/tours" element={<Tours />} />
-          <Route path="/experiences" element={<Experiences />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route
+            path="/experiences"
+            element={<Experiences />}
+          />
+
+          <Route
+            path="/gallery"
+            element={<Gallery />}
+          />
+
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
+
           <Route
             path="/tours/:slug"
             element={<TourDetail />}
